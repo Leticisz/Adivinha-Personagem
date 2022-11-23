@@ -1,0 +1,42 @@
+import random
+
+nome = input("Qual o seu nome?")
+print("Boa Sorte!", nome)
+print("Personagens do Mundo da Marvel")
+
+palavras = ['Homem-Aranha', 'Hulk', 'Homem de Ferro','Capitão America', 'Thanos', 'Thor', 'Viuva Negra',
+           'Doutor Estranho', 'Gavião Arqueiro', 'Loki','capitã Marvel']
+
+palavra = random.choice(palavras)
+
+print("Adivinhe o Personagem")
+
+palpites = ''
+
+voltas = 12
+
+while voltas > 0:
+  errou = 0
+  for char in palavra:
+    if char in palpites:
+      print(char)
+    else:
+      print("_")
+      errou += 1
+    if errou == 0:
+      print("Voce Acertou")
+      print("A palavras e:", palavra)
+  break
+
+palpite = input("Advinhe um personagem:")
+palpites += palpite
+
+if palpite not in palavra:
+  voltas -= 1 
+
+  print("Errado")
+
+  print("Voce Tem" , + voltas, 'mais palpites')
+
+  if voltas == 0:
+    print("Voce Perdeu")
